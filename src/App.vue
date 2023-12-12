@@ -32,49 +32,60 @@ export default {
 
 <template>
   <div id="wrapper" class="unmarkable">
-    <h1 id="header">Welcome to Jonx.dev</h1>
-
-    <div id="mainContainer">
-      <h2>My Projects</h2>
-      <div id="projectContainer">
-        <div class="projectWrapper clickable" @click="openWindow('portfolio')">
-          <h3>Portfolio</h3>
-          <img src="./assets/portfolio.png">
-        </div>
-        <div class="projectWrapper clickable"  @click="openWindow('spotify')">
-          <h3>spotify playlist editor</h3>
-          <img src="./assets/spotify.png">
-        </div>
-        <div class="projectWrapper clickable"  @click="openWindow('lichtbier')">
-          <h3>Lichtbierrechner</h3>
-          <img src="./assets/lichtbier.png">
-        </div>
-
-        
-      </div>
+    <div id="navBar">
+      <h1 class="navBarButton">Blog</h1>
+      <h1 class="navBarButton">Photography</h1>
+      <h1 class="navBarButton">Projects</h1>
     </div>
+    <h1 id="MainText">Welcome to Jonx.dev</h1>
   </div>
 
 </template>
 
 <style scoped>
-    #header{
-      position: relative;
-
+    #navBar{
       width: 100%;
+      height: 60px;
+
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .navBarButton{
+      padding-bottom: 40px;
+      margin-top: 15px;
+    }
+
+    .navBarButton:hover{
+      cursor: pointer;
+      border-bottom: 4px solid white;
+      
+    }
+
+    #MainText{
+      position: absolute;
+
       background: linear-gradient(318deg, rgb(163, 42, 255) 0%, rgb(30, 192, 197) 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      font-size: 340%;
+      line-height: normal;
+      font-size: 7rem;
+      width: 100%;
       text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
     }
 
     #mainContainer{
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
+      top: 50%;
+      transform: translate(-50%, -50%);
 
       width: 70%;
       min-width: 1700px;
@@ -140,6 +151,10 @@ export default {
         min-height: none;
         padding: 10px;
         margin-bottom: 80px;
+
+        position: static;
+        transform: translateX(0);
+        margin-left: calc(10% - 10px);
       }
 
       .projectWrapper{
