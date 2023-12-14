@@ -1,13 +1,19 @@
 <script>
+import Blog from './components/Blog.vue';
+import Photo from './components/Photo.vue';
+import Projects from './components/Projects.vue';
+
 export default {
 
-    data(){
-        return {
-
-        }
-    },
+  data(){
+    return {
+      view: "main",
+    }
+  },
     components: {
-        
+      Blog,
+      Photo,
+      Projects,
     },
     props: {
         
@@ -31,14 +37,20 @@ export default {
 </script>
 
 <template>
+ <div class="window" id="mainView" v-if="view === 'main'">
   <div id="wrapper" class="unmarkable">
     <div id="navBar">
       <h1 class="navBarButton">Blog</h1>
-      <h1 class="navBarButton">Photography</h1>
+      <h1 class="navBarButton" @click="view = 'photo'">Photography</h1>
       <h1 class="navBarButton">Projects</h1>
     </div>
     <h1 id="MainText">Welcome to Jonx.dev</h1>
   </div>
+ </div>
+
+ <div class="window" id="photoView" v-else-if="view === 'photo'">
+  <Photo></Photo>
+ </div>
 
 </template>
 
